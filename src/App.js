@@ -1,23 +1,48 @@
-import logo from './logo.svg';
 import './App.css';
+import {FilmDetails} from "./components/FilmDetails/FilmDetails";
 
-function App() {
+export const App = () => {
+
+
+  const filmDetails = {
+    id: 'asdjnw12312',
+    title: 'The Simpsons',
+    seasonsCount: 33,
+    genre: 'Comedy',
+    similar: [
+      {
+        id: 'sadasdadas',
+        title:  'South Park'
+      }
+    ],
+    reviews: [
+      {
+        id: 'xc754vcx5',
+        author: 'SP',
+        text: 'Самый лучший мультфильм',
+        rating: '10',
+      }
+    ]
+  }
+
+  const filmRating = Math.floor(
+    filmDetails.reviews.reduce((sum, review) => {
+      return sum + review.rating
+    }, 0) / filmDetails.reviews.length
+  )
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <header/>
+      <FilmDetails
+        title={filmDetails.title}
+        seasonsCount={filmDetails.seasonsCount}
+        genre={filmDetails.genre}
+      />
+      {/*<Reviews/>*/}
+      {/*<Recomendations/>*/}
+      <footer/>
+
     </div>
   );
 }
