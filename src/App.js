@@ -1,5 +1,6 @@
 import './App.css';
 import {FilmDetails} from "./components/FilmDetails/FilmDetails";
+import {useMemo} from 'react'
 
 export const App = () => {
 
@@ -25,11 +26,14 @@ export const App = () => {
     ]
   }
 
-  const filmRating = Math.floor(
-    filmDetails.reviews.reduce((sum, review) => {
-      return sum + review.rating
-    }, 0) / filmDetails.reviews.length
-  )
+  const filmRating = useMemo(() => {
+    Math.floor(
+      filmDetails.reviews.reduce((sum, review) => {
+        return sum + review.rating
+      }, 0) / filmDetails.reviews.length
+    )
+  }, [filmDetails.reviews]);
+
 
   return (
     <div>
@@ -38,6 +42,7 @@ export const App = () => {
         title={filmDetails.title}
         seasonsCount={filmDetails.seasonsCount}
         genre={filmDetails.genre}
+        rating={filmRating}
       />
       {/*<Reviews/>*/}
       {/*<Recomendations/>*/}

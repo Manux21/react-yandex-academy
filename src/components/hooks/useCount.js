@@ -9,8 +9,8 @@ export function useCount(initialValue) {
 
   );
   const increment =  useCallback(
-    () => {setCount(currentCount => currentCount - 1)},
-    [ ]
+    () => {setCount(currentCount => currentCount + 1)},
+    []
   );
 
   return { count, decrement, increment }
