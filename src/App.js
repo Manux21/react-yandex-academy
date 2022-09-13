@@ -1,6 +1,7 @@
 import './App.css';
 import {FilmDetails} from "./components/FilmDetails/FilmDetails";
 import {useMemo} from 'react'
+import {Reviews} from "./components/Reviews/Reviews";
 
 export const App = () => {
 
@@ -44,7 +45,7 @@ export const App = () => {
         genre={filmDetails.genre}
         rating={filmRating}
       />
-      {/*<Reviews/>*/}
+      <Reviews reviews={filmDetails.reviews}/>
       {/*<Recomendations/>*/}
       <footer/>
 
