@@ -12,6 +12,7 @@ export const Reviews = ({reviews}) => {
               rating={review.rating}
               text={review.text}
               author={review.author}
+
             />
           )
         )
